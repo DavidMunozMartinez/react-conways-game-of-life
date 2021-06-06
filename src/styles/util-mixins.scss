@@ -1,0 +1,32 @@
+@import './color-paletter.scss';
+
+@mixin abs-dimensions($heigh, $width, $top, $left) {
+    position: absolute;
+    height: $height;
+    width: $width;
+    top: $top;
+    left: $left;
+}
+
+@mixin app-primary-btn($height:30px, $width:130px) {
+    height: $height;
+    width: $width;
+    background: map-get($primary, 'base');
+    border: none;
+    outline: none;
+    border-radius: 5px;
+    color: white;
+    cursor: pointer;
+    margin: 5px;
+    transition: background-color 90ms ease-in-out;
+
+    &:hover {
+      background: map-get($primary, 'tint')
+    }
+
+    &:active {
+      background: map-get($primary, 'base')
+    }
+
+
+}

@@ -1,0 +1,31 @@
+@import './styles/util-mixins.scss';
+@import './styles/color-paletter.scss';
+
+.App {
+    background: $app-dark;
+    text-align: center;
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    position: absolute;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.app-header {
+    position: fixed;
+    height: 40px;
+    width: 100%;
+    .config-modal-btn {
+        @include app-primary-btn(40px, 40px);
+        float: left;
+        svg {
+            height: 2em;
+            width: 2em;
+            vertical-align: middle;
+        }
+        z-index: 2;
+    }
+
+}
