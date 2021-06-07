@@ -3,6 +3,7 @@ import './ConfigModal.scss';
 
 function ConfigModalComponenet(props: {dataChange: any, x: number, y: number}) {
 
+  /**Sends the data changes to the parent trough the dataChange prop function */
   function onChange(axis: string, value: number) {
     if (props.dataChange) {
       props.dataChange({
@@ -14,10 +15,11 @@ function ConfigModalComponenet(props: {dataChange: any, x: number, y: number}) {
 
   return (
     <div className="ConfigModalComponent">
-      x: 
+      <span>x: </span>
       <input type="text" value={props.x} onChange={ (event) => { onChange('x', parseInt(event.target.value))} }/>
-      y: 
+      <span>y: </span>
       <input type="text" value={props.y} onChange={ (event) => { onChange('y', parseInt(event.target.value))} }/>
+      <button className="toggle-btn"></button>
     </div>
   );
 }

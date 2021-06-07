@@ -3,20 +3,18 @@ import React, { useState } from 'react';
 import CanvasComponent from './components/canvas-component/CanvasComponent';
 import ConfigModalComponent from './components/config-modal-component/ConfigModalComponent';
 import { BsFillGearFill } from 'react-icons/bs';
-import { createStore } from 'redux';
 
 function App() {
 
-  const [xValue, setXValue] = useState(50);
-  const [yValue, setYValue] = useState(50);
-
+  const [xValue, setXValue] = useState(20);
+  const [yValue, setYValue] = useState(20);
   const [showConfig, setShowConfig] = useState(false);
+
   let configDataChange = function (data: any) {
-    console.log(data);
-    if (data.axis == 'x') {
+    if (data.axis === 'x') {
       setXValue(data.value);
     }
-    if (data.axis == 'y') {
+    if (data.axis === 'y') {
       setYValue(data.value)
     }
   }

@@ -11,6 +11,16 @@
     width 0.1s ease-in-out,
     height 0.2s ease-in-out,
     opacity 0.1s;
+
+  input {
+    display: inline-block;
+    width: 60%;
+    margin: 5px;
+    outline-color: map-get($secondary, 'base');
+    border-radius: 5px;
+    border: none;
+    // border: 1px solid map-get($primary, 'base');
+  }
 }
 
 .panel-show > .ConfigModalComponent {
@@ -24,4 +34,14 @@
   width: 0px;
   opacity: 0;
   pointer-events: none;
+}
+
+.toggle-btn {
+  border-radius: 50%;
+  width: 35px;
+  height: 35px;
+  border: none;
+  outline: none;
+  background: lightgray;
+  cursor: pointer;
 }
