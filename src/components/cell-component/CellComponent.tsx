@@ -1,11 +1,10 @@
 // import React from 'react';
 import './Cell.scss';
 import { useState } from 'react';
-import EventEmitter from 'events';
 
-function CellComponent(props: { x: number, y: number }) {
+function CellComponent(props: { x: number, y: number, status: boolean }) {
 
-  const [status, setStatus] = useState(false);
+  const [status, setStatus] = useState(props.status);
 
   function mouseEnter(event: any) {
     if (event.buttons === 1 && !status) {
@@ -22,7 +21,6 @@ function CellComponent(props: { x: number, y: number }) {
       onMouseEnter={mouseEnter}
       onContextMenu={ (e) => {e.preventDefault();} }
       onClick={() => { setStatus(!status); }}>
-
     </div>
   );
 }

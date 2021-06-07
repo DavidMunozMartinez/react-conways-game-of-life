@@ -1,8 +1,9 @@
+@import '../../styles/util-mixins.scss';
+@import '../../styles/color-paletter.scss';
+
 .CanvasComponent {
-  // flex-direction: row;
   .row {
     display: flex;
-    // width: 100%;
   }
 
   .cell {
@@ -13,5 +14,15 @@
     margin: 1px;
     background: none;
     border: 1px solid lightgray;
+    cursor: pointer;
   }
+  
+  .alive {
+    background-color: $app-clear;
+  }
+
+}
+.toggle-sim-btn {
+  @include app-primary-btn(40px, 120px);
+  z-index: 5;
 }
