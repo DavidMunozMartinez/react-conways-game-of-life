@@ -1,0 +1,20 @@
+{
+  "files": {
+    "main.css": "/life.github.io/static/css/main.e9337e86.chunk.css",
+    "main.js": "/life.github.io/static/js/main.95ee0a47.chunk.js",
+    "main.js.map": "/life.github.io/static/js/main.95ee0a47.chunk.js.map",
+    "runtime-main.js": "/life.github.io/static/js/runtime-main.a159877a.js",
+    "runtime-main.js.map": "/life.github.io/static/js/runtime-main.a159877a.js.map",
+    "static/js/2.f47f97a9.chunk.js": "/life.github.io/static/js/2.f47f97a9.chunk.js",
+    "static/js/2.f47f97a9.chunk.js.map": "/life.github.io/static/js/2.f47f97a9.chunk.js.map",
+    "index.html": "/life.github.io/index.html",
+    "static/css/main.e9337e86.chunk.css.map": "/life.github.io/static/css/main.e9337e86.chunk.css.map",
+    "static/js/2.f47f97a9.chunk.js.LICENSE.txt": "/life.github.io/static/js/2.f47f97a9.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.a159877a.js",
+    "static/js/2.f47f97a9.chunk.js",
+    "static/css/main.e9337e86.chunk.css",
+    "static/js/main.95ee0a47.chunk.js"
+  ]
+}
