@@ -1,37 +1,31 @@
 import './App.scss';
-import React, { useState } from 'react';
+import { useState } from 'react';
 import CanvasComponent from './components/canvas-component/CanvasComponent';
 import ConfigModalComponent from './components/config-modal-component/ConfigModalComponent';
-import { BsFillGearFill } from 'react-icons/bs';
+import { BsFillGearFill, BsPlay } from 'react-icons/bs';
+import { IoIosArrowForward } from 'react-icons/io';
+import { useDispatch } from 'react-redux';
 
 function App() {
-
-  const [xValue, setXValue] = useState(20);
-  const [yValue, setYValue] = useState(20);
   const [showConfig, setShowConfig] = useState(false);
+  const dispatch = useDispatch();
 
-  let configDataChange = function (data: any) {
-    if (data.axis === 'x') {
-      setXValue(data.value);
-    }
-    if (data.axis === 'y') {
-      setYValue(data.value)
-    }
-  }
-  
   return (
     <div className="App">
-        <div className={ showConfig ? 'panel-show' : 'panel-hide' }>
-          <ConfigModalComponent dataChange={configDataChange} x={xValue} y={yValue}></ConfigModalComponent>
-        </div>
 
-        <div className="app-header">
-            <button className="config-modal-btn" onClick={ () => { setShowConfig(!showConfig) }}>
-                <BsFillGearFill/>
-            </button>
-        </div>
-
-        <CanvasComponent x={xValue} y={yValue}></CanvasComponent>
+      <div className={showConfig ? 'panel-show' : 'panel-hide'}>
+        <ConfigModalComponent></ConfigModalComponent>
+      </div>
+      <smart-hover query-selector=".primary-btn" class="app-header" override-styles="true">
+        <button className="primary-btn icon-btn" onClick={() => { setShowConfig(!showConfig) }}>
+          <BsFillGearFill />
+        </button>
+        {/* <button className="primary-btn icon-btn" onClick={ (event) => { dispatch({type: 'event', value: 'toggle'}) } }> <BsPlay /> </button>
+        <button className="primary-btn icon-btn" onClick={ (event) => { dispatch({type: 'event', value: 'next'}) } }> <IoIosArrowForward /> </button>
+        <button className="primary-btn text-btn" onClick={ (event) => { dispatch({type: 'event', value: 'clear'}) } }> Clear </button>
+        <button className="primary-btn text-btn" onClick={ (event) => { dispatch({type: 'event', value: 'random'}) } }> Random </button> */}
+      </smart-hover>
+      <CanvasComponent></CanvasComponent>
     </div>
   );
 }

@@ -1,5 +1,5 @@
-@import './styles/util-mixins.scss';
-@import './styles/color-paletter.scss';
+@import "./styles/util-mixins.scss";
+@import "./styles/color-paletter.scss";
 
 .App {
     background: $app-dark;
@@ -18,15 +18,19 @@
     position: fixed;
     height: 40px;
     width: 100%;
-    .config-modal-btn {
-        @include app-primary-btn(40px, 40px);
-        float: left;
-        svg {
-            height: 2em;
-            width: 2em;
-            vertical-align: middle;
-        }
-        z-index: 2;
-    }
 
+    .primary-btn {
+        left: 100px;
+        position: absolute;
+        margin: 0;
+        margin-top: 5px;
+    }
+}
+
+.primary-btn {
+    @include app-btn($primary);
+  }
+  
+.secondary-btn {
+@include app-btn($secondary);
 }

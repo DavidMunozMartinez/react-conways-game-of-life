@@ -2,27 +2,51 @@
 @import '../../styles/color-paletter.scss';
 
 .CanvasComponent {
+  margin-top: 60px;
+  width: fit-content;
+  height: fit-content;
+  border: 1px solid $app-clear;
+  border-radius: 5px;
+  cursor: pointer;
   .row {
     display: flex;
   }
 
   .cell {
-    height: 20px;
-    width: 20px;
+    height: 15px;
+    width: 15px;
     background: lightgray;
-    border-radius: 5px;
     margin: 1px;
     background: none;
-    border: 1px solid lightgray;
     cursor: pointer;
+    transition: background-color 60ms ease-in;
   }
   
   .alive {
     background-color: $app-clear;
+    transform: scale(1.1);
+    border-radius: 1px;
+    animation-name: bounce;
+    animation-iteration-count: 1;
+    animation-duration: 120ms;
   }
 
+  .smart-hover-shadow {
+    border-radius: 4px;
+    background: rgba(0,0,0,0.4);
+  }
 }
-.toggle-sim-btn {
-  @include app-primary-btn(40px, 120px);
-  z-index: 5;
+
+@keyframes bounce {
+  0% {
+    transform: scale(1.1);
+  }
+
+  70% {
+    transform: scale(1.3);
+  }
+
+  100% {
+    transform: scale(1.1);
+  }
 }

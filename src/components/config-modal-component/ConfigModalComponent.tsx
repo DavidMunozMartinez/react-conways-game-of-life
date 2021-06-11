@@ -1,25 +1,29 @@
-import React from 'react';
 import './ConfigModal.scss';
+import { useSelector, useDispatch } from 'react-redux';
 
-function ConfigModalComponenet(props: {dataChange: any, x: number, y: number}) {
+function ConfigModalComponenet() {
 
-  /**Sends the data changes to the parent trough the dataChange prop function */
-  function onChange(axis: string, value: number) {
-    if (props.dataChange) {
-      props.dataChange({
-        axis: axis,
+  const config = useSelector((state: any) => state.config);
+  const dispatch = useDispatch();
+
+  function updateConfig(prop: any, value: any) {
+    dispatch({ 
+      type: 'update',
+      data: {
+        prop: prop,
         value: value
-      });
-    }
+      }
+    });
   }
 
   return (
     <div className="ConfigModalComponent">
-      <span>x: </span>
-      <input type="text" value={props.x} onChange={ (event) => { onChange('x', parseInt(event.target.value))} }/>
+      {/* <span>x: </span>
+      <input type="number" max={60} value={config.x} onChange={(event) => { updateConfig('x', event.target.value) }} />
       <span>y: </span>
-      <input type="text" value={props.y} onChange={ (event) => { onChange('y', parseInt(event.target.value))} }/>
-      <button className="toggle-btn"></button>
+      <input type="number" max={60} value={config.y} onChange={(event) => { updateConfig('y', event.target.value) }} /> */}
+      <span> Speed:</span>
+      <input type="number" min={100} value={config.speed} onChange={(event) => {updateConfig('speed', event.target.value) }}/>
     </div>
   );
 }
