@@ -4,6 +4,7 @@ import { useSelector } from 'react-redux';
 import { CanvasComponent, ICanvasCallables } from './components/canvas-component/CanvasComponent';
 import ConfigModalComponent from './components/config-modal-component/ConfigModalComponent';
 import { BsFillGearFill, BsPlayFill, BsPauseFill } from 'react-icons/bs';
+import { FiGithub } from 'react-icons/fi';
 import { IoIosArrowForward } from 'react-icons/io';
 
 function App() {
@@ -38,6 +39,8 @@ function App() {
           <option value="pulsar">Pulsar</option>
 
         </select>
+
+        <button onClick={ ()=> {window.open('https://github.com/DavidMunozMartinez/react-conways-game-of-life')} } className="primary-btn" style={{float: 'right', borderRadius: 5}}> <FiGithub></FiGithub></button>
       </smart-hover>
       <CanvasComponent callablesSetter={setCallables}></CanvasComponent>
     </div>
