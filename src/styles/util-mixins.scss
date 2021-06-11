@@ -17,7 +17,7 @@
   color: white;
   cursor: pointer;
   margin: 5px;
-  transition: background-color 90ms ease-in-out;
+  // transition: background-color 90ms ease-in-out;
   background: map-get($color, 'base');
   // &:hover {
   //   background: map-get($color, 'tint')
