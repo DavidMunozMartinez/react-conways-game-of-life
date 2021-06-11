@@ -3,12 +3,12 @@ import ReactDOM from 'react-dom';
 import './index.scss';
 import App from './App';
 import 'smart-hoverjs';
-import { createStore,  } from 'redux';
+import { createStore, } from 'redux';
 import { Provider } from 'react-redux';
 
 // Reducers
 import { combineReducers } from 'redux';
-import {configReducer} from './reducers/ConfigReducer';
+import { configReducer } from './reducers/ConfigReducer';
 
 let reducers = combineReducers({
   config: configReducer

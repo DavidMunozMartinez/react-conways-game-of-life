@@ -1,14 +1,20 @@
 import './App.scss';
 import { useState } from 'react';
-import CanvasComponent from './components/canvas-component/CanvasComponent';
+import { useSelector } from 'react-redux';
+import { CanvasComponent, ICanvasCallables } from './components/canvas-component/CanvasComponent';
 import ConfigModalComponent from './components/config-modal-component/ConfigModalComponent';
-import { BsFillGearFill, BsPlay } from 'react-icons/bs';
+import { BsFillGearFill, BsPlayFill, BsPauseFill } from 'react-icons/bs';
 import { IoIosArrowForward } from 'react-icons/io';
-import { useDispatch } from 'react-redux';
 
 function App() {
   const [showConfig, setShowConfig] = useState(false);
-  const dispatch = useDispatch();
+  const config = useSelector((state: any) => state.config);
+  let canvasCallables: ICanvasCallables;
+
+  // This feels ilegal but it works tho
+  function setCallables(service) {
+    canvasCallables = service;
+  }
 
   return (
     <div className="App">
@@ -20,12 +26,12 @@ function App() {
         <button className="primary-btn icon-btn" onClick={() => { setShowConfig(!showConfig) }}>
           <BsFillGearFill />
         </button>
-        {/* <button className="primary-btn icon-btn" onClick={ (event) => { dispatch({type: 'event', value: 'toggle'}) } }> <BsPlay /> </button>
-        <button className="primary-btn icon-btn" onClick={ (event) => { dispatch({type: 'event', value: 'next'}) } }> <IoIosArrowForward /> </button>
-        <button className="primary-btn text-btn" onClick={ (event) => { dispatch({type: 'event', value: 'clear'}) } }> Clear </button>
-        <button className="primary-btn text-btn" onClick={ (event) => { dispatch({type: 'event', value: 'random'}) } }> Random </button> */}
+        <button className="primary-btn icon-btn" onClick={() => { canvasCallables.toggle() }}> {config.running ? <BsPauseFill /> : <BsPlayFill /> } </button>
+        <button className="primary-btn icon-btn" onClick={() => { canvasCallables.next() }}> <IoIosArrowForward /> </button>
+        <button className="primary-btn text-btn" onClick={() => { canvasCallables.clear() }}> Clear </button>
+        <button className="primary-btn text-btn" onClick={() => { canvasCallables.randomize(0.3) }}> Random </button>
       </smart-hover>
-      <CanvasComponent></CanvasComponent>
+      <CanvasComponent callablesSetter={setCallables}></CanvasComponent>
     </div>
   );
 }

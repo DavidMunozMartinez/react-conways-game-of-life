@@ -2,35 +2,42 @@
 @import "./styles/color-paletter.scss";
 
 .App {
-    background: $app-dark;
-    text-align: center;
-    height: 100%;
-    width: 100%;
-    margin: 0;
-    position: absolute;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    overflow: auto;
+  background: $app-dark;
+  text-align: center;
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  position: absolute;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  overflow: auto;
 }
 
 .app-header {
-    position: fixed;
-    height: 40px;
-    width: 100%;
+  position: fixed;
+  height: 40px;
+  width: 100%;
 
-    .primary-btn {
-        left: 100px;
-        position: absolute;
-        margin: 0;
-        margin-top: 5px;
-    }
+  .primary-btn {
+    border-radius: 0;
+    margin: 0;
+    margin-top: 5px;
+    float: left;
+  }
+
+  .smart-hover-shadow {
+    // border-style: inset;
+    border-bottom: 4px inset map-get($secondary, 'tint');
+    box-sizing: border-box;
+    background-color: rgba(255,255,255, 0.2)
+  }
 }
 
 .primary-btn {
-    @include app-btn($primary);
-  }
-  
+  @include app-btn($primary);
+}
+
 .secondary-btn {
-@include app-btn($secondary);
+  @include app-btn($secondary);
 }

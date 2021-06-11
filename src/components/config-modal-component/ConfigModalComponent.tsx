@@ -18,10 +18,10 @@ function ConfigModalComponenet() {
 
   return (
     <div className="ConfigModalComponent">
-      {/* <span>x: </span>
+      <span>x: </span>
       <input type="number" max={60} value={config.x} onChange={(event) => { updateConfig('x', event.target.value) }} />
       <span>y: </span>
-      <input type="number" max={60} value={config.y} onChange={(event) => { updateConfig('y', event.target.value) }} /> */}
+      <input type="number" max={60} value={config.y} onChange={(event) => { updateConfig('y', event.target.value) }} />
       <span> Speed:</span>
       <input type="number" min={100} value={config.speed} onChange={(event) => {updateConfig('speed', event.target.value) }}/>
     </div>

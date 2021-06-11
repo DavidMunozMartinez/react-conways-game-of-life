@@ -19,11 +19,11 @@
   margin: 5px;
   transition: background-color 90ms ease-in-out;
   background: map-get($color, 'base');
-  &:hover {
-    background: map-get($color, 'tint')
-  }
+  // &:hover {
+  //   background: map-get($color, 'tint')
+  // }
 
-  &:active {
-    background: map-get($color, 'base')
-  }
+  // &:active {
+  //   background: map-get($color, 'base')
+  // }
 }

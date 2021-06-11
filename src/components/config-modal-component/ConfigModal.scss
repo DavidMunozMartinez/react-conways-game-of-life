@@ -1,17 +1,14 @@
-@import '../../styles/color-paletter.scss';
+@import "../../styles/color-paletter.scss";
 
 .ConfigModalComponent {
   position: absolute;
   padding: 10px;
   background: #eeeeee;
   border-radius: 5px;
-  left: 100px;
+  left: 5px;
   top: 40px;
   z-index: 50;
-  transition: 
-    width 0.1s ease-in-out,
-    height 0.2s ease-in-out,
-    opacity 0.1s;
+  transition: width 0.1s ease-in-out, height 0.2s ease-in-out, opacity 0.1s;
 
   span {
     width: 50%;
@@ -23,7 +20,7 @@
     display: inline-block;
     width: 30%;
     margin: 5px;
-    outline-color: map-get($secondary, 'base');
+    outline-color: map-get($secondary, "base");
     border-radius: 5px;
     border: none;
     // border: 1px solid map-get($primary, 'base');
