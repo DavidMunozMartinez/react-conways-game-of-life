@@ -30,6 +30,14 @@ function App() {
         <button className="primary-btn icon-btn" onClick={() => { canvasCallables.next() }}> <IoIosArrowForward /> </button>
         <button className="primary-btn text-btn" onClick={() => { canvasCallables.clear() }}> Clear </button>
         <button className="primary-btn text-btn" onClick={() => { canvasCallables.randomize(0.3) }}> Random </button>
+        <select defaultValue="init" placeholder="examples" className="primary-btn" onChange={(event) => { canvasCallables.example(event.target.value) }}>
+          <option value="init" disabled>Cool examples</option>
+          <option value="glider">Simple glider</option>
+          <option value="g-glider">Gosper's glider gun</option>
+          <option value="cloverleaf">Cloverleaf</option>
+          <option value="pulsar">Pulsar</option>
+
+        </select>
       </smart-hover>
       <CanvasComponent callablesSetter={setCallables}></CanvasComponent>
     </div>

@@ -20,7 +20,11 @@ export interface ICanvasCallables {
   /**
    * Calculates next generation
    */
-  next: () => void
+  next: () => void,
+  /**
+   * Renders example patterns
+   */
+  example: (pattern: string) => void
 }
 
 export function CanvasComponent(props: { callablesSetter: any}) {
@@ -53,12 +57,27 @@ export function CanvasComponent(props: { callablesSetter: any}) {
     let newCanvas = canvasService.nextGeneration(canvas);
     setCanvas(newCanvas);
   }
+
+  const example = (name: string) => {
+    if (running) {
+      setRunning(false);
+      dispatch({type: 'update', data: {prop: 'running', value: false}});
+    }
+    dispatch({type: 'update', data: {prop: 'speed', value: 50}});
+    let pattern = canvasService.getPattern(name);
+    let newCanvas = canvasService.makeCanvas(config.x,config.y, (x, y) => {
+      return pattern.indexOf(`${x}-${y}`) > -1;
+    });
+    console.log(newCanvas);
+    setCanvas(newCanvas);
+  }
   if (props.callablesSetter) {
     let callables: ICanvasCallables = {
       toggle: toggle,
       randomize: randomize,
       next: next,
-      clear: clear
+      clear: clear,
+      example: example
     }
     props.callablesSetter(callables);
   }
@@ -72,6 +91,7 @@ export function CanvasComponent(props: { callablesSetter: any}) {
   function mouseDown(i: number, j: number) {
     const newCanvas = JSON.parse(JSON.stringify(canvas));
     newCanvas[i][j] = !canvas[i][j];
+    console.log([j, i]);
     setCanvas(newCanvas);
   }
 
@@ -115,6 +135,19 @@ export function CanvasComponent(props: { callablesSetter: any}) {
     setTimeout(simulate, speedRef.current);
   }, []);
 
+  // function printPattern() {
+  //   let pattern = [];
+  //   canvas.forEach((row, y) => {
+  //     row.forEach((col, x) => {
+  //       if (col) {
+  //         pattern.push(`${x}-${y}`);
+  //       }
+  //     });
+  //   });
+
+  //   console.log(pattern);
+  // }
+
   return (
     <>
       <div className="CanvasComponent" draggable="false"
@@ -127,6 +160,8 @@ export function CanvasComponent(props: { callablesSetter: any}) {
             )}</div>
           )}
         </smart-hover>
+        {/* Only used to save patterns */}
+        {/* <button onClick={() => { printPattern() }}>Print pattern</button> */}
       </div>
     </>
   );
